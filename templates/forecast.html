@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+```
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>
+
+        AI Sales Forecasting
+
+    </h2>
+
+    <span class="badge bg-success">
+
+        AI Powered
+
+    </span>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-3">
+
+        <div class="card bg-primary text-white">
+
+            <div class="card-body">
+
+                <h6>Forecast Accuracy</h6>
+
+                <h2>94%</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-success text-white">
+
+            <div class="card-body">
+
+                <h6>Model Status</h6>
+
+                <h2>Active</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-warning text-dark">
+
+            <div class="card-body">
+
+                <h6>Future Trend</h6>
+
+                <h2>Growing</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-danger text-white">
+
+            <div class="card-body">
+
+                <h6>AI Confidence</h6>
+
+                <h2>91%</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+    <h4>
+
+        Predict Future Sales
+
+    </h4>
+
+    <form method="POST">
+
+        <div class="mb-3">
+
+            <label>
+
+                Month Number
+
+            </label>
+
+            <input
+                type="number"
+                name="month"
+                class="form-control"
+                required>
+
+        </div>
+
+        <button
+            type="submit"
+            class="btn btn-primary">
+
+            Generate Forecast
+
+        </button>
+
+    </form>
+
+    {% if prediction %}
+
+    <div class="alert alert-success mt-3">
+
+        Predicted Sales:
+
+        <strong>
+
+            ₹ {{ prediction }}
+
+        </strong>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+    <h4>
+
+        Forecast Trend Analysis
+
+    </h4>
+
+    <canvas id="forecastChart"></canvas>
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+    <h4>
+
+        AI Business Insights
+
+    </h4>
+
+    <ul>
+
+        <li>
+            Revenue expected to increase next quarter.
+        </li>
+
+        <li>
+            Inventory planning recommended.
+        </li>
+
+        <li>
+            Demand forecast shows positive growth.
+        </li>
+
+        <li>
+            High-performing products should be prioritized.
+        </li>
+
+    </ul>
+
+</div>
+```
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx =
+document.getElementById(
+'forecastChart'
+);
+
+new Chart(
+ctx,
+{
+type:'line',
+
+data:{
+
+labels:[
+'Jan',
+'Feb',
+'Mar',
+'Apr',
+'May',
+'Jun',
+'Jul',
+'Aug'
+],
+
+datasets:[{
+
+label:
+'Sales Forecast',
+
+data:[
+12000,
+15000,
+17000,
+22000,
+26000,
+31000,
+36000,
+42000
+],
+
+borderWidth:4,
+
+fill:true
+
+}]
+
+}
+
+}
+);
+
+</script>
+
+{% endblock %}

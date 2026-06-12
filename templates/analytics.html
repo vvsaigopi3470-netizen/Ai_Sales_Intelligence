@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2>
+        Revenue Analytics
+    </h2>
+
+    <!-- STEP 7 : KPI Cards -->
+    <div class="row mb-4">
+
+        <div class="col-md-3">
+
+            <div class="card bg-success text-white">
+
+                <div class="card-body">
+
+                    <h5>Total Revenue</h5>
+
+                    <h2>₹1.2M</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card bg-primary text-white">
+
+                <div class="card-body">
+
+                    <h5>Total Sales</h5>
+
+                    <h2>850</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card bg-warning text-dark">
+
+                <div class="card-body">
+
+                    <h5>Customers</h5>
+
+                    <h2>420</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card bg-danger text-white">
+
+                <div class="card-body">
+
+                    <h5>Growth</h5>
+
+                    <h2>18%</h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Existing Chart -->
+    <div class="card p-4">
+
+        <canvas id="analyticsChart">
+
+        </canvas>
+
+    </div>
+
+    <!-- STEP 8 : Executive Insights -->
+    <div class="card p-4 mt-4">
+
+        <h4>
+
+            Executive Insights
+
+        </h4>
+
+        <ul>
+
+            <li>
+                Revenue increased 18% this quarter.
+            </li>
+
+            <li>
+                Top products contribute 65% revenue.
+            </li>
+
+            <li>
+                Loyal customers drive repeat sales.
+            </li>
+
+            <li>
+                AI Forecast predicts continued growth.
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx =
+document.getElementById(
+'analyticsChart'
+);
+
+new Chart(
+ctx,
+{
+type:'bar',
+
+data:{
+
+labels:[
+'Jan',
+'Feb',
+'Mar',
+'Apr',
+'May',
+'Jun'
+],
+
+datasets:[{
+
+label:'Revenue',
+
+data:[
+12000,
+18000,
+24000,
+28000,
+35000,
+42000
+]
+
+}]
+
+}
+
+}
+);
+
+</script>
+
+{% endblock %}

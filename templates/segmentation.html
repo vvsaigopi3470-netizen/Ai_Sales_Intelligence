@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>
+Customer Segments
+</h2>
+
+<table class="table">
+
+<tr>
+
+<th>Purchase</th>
+<th>Segment</th>
+
+</tr>
+
+{% for c in customers %}
+
+<tr>
+
+<td>
+₹{{c.purchase}}
+</td>
+
+<td>
+{{c.segment}}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

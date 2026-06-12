@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+```
+<div class="card shadow">
+
+    <div class="card-header bg-success text-white">
+
+        <h3>Add Inventory</h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <form method="POST">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Select Product
+                </label>
+
+                <select
+                    name="product_id"
+                    class="form-control"
+                    required>
+
+                    <option value="">
+                        Select Product
+                    </option>
+
+                    {% for product in products %}
+
+                    <option value="{{ product[0] }}">
+                        {{ product[1] }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Stock Level
+                </label>
+
+                <input
+                    type="number"
+                    name="stock_level"
+                    class="form-control"
+                    placeholder="Enter Stock Quantity"
+                    required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Reorder Point
+                </label>
+
+                <input
+                    type="number"
+                    name="reorder_point"
+                    class="form-control"
+                    placeholder="Enter Reorder Point"
+                    required>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-success">
+
+                Save Inventory
+
+            </button>
+
+            <a
+                href="/inventory"
+                class="btn btn-secondary">
+
+                Back
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+{% endblock %}

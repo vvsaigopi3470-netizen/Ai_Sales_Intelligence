@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+```
+<div class="card shadow-lg">
+
+    <div class="card-header bg-primary text-white">
+
+        <h3>
+
+            🤖 AI Business Assistant
+
+        </h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="chat-container">
+
+            {% if answer %}
+
+            <div class="bot-message">
+
+                {{ answer }}
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+        <form method="POST">
+
+            <div class="input-group mt-4">
+
+                <input
+                    type="text"
+                    name="question"
+                    class="form-control"
+                    placeholder="Ask about sales, customers, inventory, revenue..."
+                    required>
+
+                <button
+                    class="btn btn-primary"
+                    type="submit">
+
+                    Ask AI
+
+                </button>
+
+            </div>
+
+        </form>
+
+             </div>
+
+     <div class="mt-4">
+
+    <a href="/assistant?query=sales"
+       class="btn btn-outline-primary">
+
+       Sales Insights
+
+    </a>
+
+    <a href="/assistant?query=inventory"
+       class="btn btn-outline-success">
+
+       Inventory Status
+
+    </a>
+
+    <a href="/assistant?query=customers"
+       class="btn btn-outline-warning">
+
+       Customer Analytics
+
+    </a>
+
+</div>
+</div>
+
+</div>
+
+{% endblock %}

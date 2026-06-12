@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+```
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>
+        Product Management
+    </h2>
+
+    <a href="/add_product"
+       class="btn btn-success">
+
+        <i class="bi bi-plus-circle"></i>
+        Add Product
+
+    </a>
+
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-4">
+
+        <div class="card bg-primary text-white">
+
+            <div class="card-body">
+
+                <h6>Total Products</h6>
+
+                <h2>{{ products|length }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card bg-success text-white">
+
+            <div class="card-body">
+
+                <h6>Categories</h6>
+
+                <h2>Available</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card bg-warning text-dark">
+
+            <div class="card-body">
+
+                <h6>Inventory Status</h6>
+
+                <h2>Healthy</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card p-4">
+
+    <input
+        type="text"
+        id="searchProduct"
+        class="form-control mb-3"
+        placeholder="Search Products...">
+
+    <table
+        class="table table-hover"
+        id="productTable">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Supplier</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for p in products %}
+
+            <tr>
+
+                <td>{{ p[0] }}</td>
+                <td>{{ p[1] }}</td>
+                <td>{{ p[2] }}</td>
+                <td>₹{{ p[3] }}</td>
+                <td>{{ p[4] }}</td>
+                <td>{{ p[5] }}</td>
+
+                <td>
+
+                    <a href="/delete_product/{{ p[0] }}"
+                       class="btn btn-danger btn-sm">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+```
+
+</div>
+
+<script>
+
+document
+.getElementById(
+'searchProduct'
+)
+.addEventListener(
+'keyup',
+function(){
+
+let value =
+this.value.toLowerCase();
+
+let rows =
+document.querySelectorAll(
+'#productTable tbody tr'
+);
+
+rows.forEach(
+row => {
+
+row.style.display =
+row.innerText
+.toLowerCase()
+.includes(value)
+? ''
+: 'none';
+
+});
+
+});
+
+</script>
+
+{% endblock %}

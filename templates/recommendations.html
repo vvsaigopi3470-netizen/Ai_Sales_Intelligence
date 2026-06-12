@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+```
+<div class="card p-4 shadow">
+
+    <h2 class="mb-4">
+
+        🤖 AI Product Recommendation Engine
+
+    </h2>
+
+    <form method="POST">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+
+                Select Product
+
+            </label>
+
+            <select
+                name="product"
+                class="form-control">
+
+                <option value="Laptop">Laptop</option>
+                <option value="Mobile">Mobile</option>
+                <option value="TV">TV</option>
+
+            </select>
+
+        </div>
+
+        <button
+            class="btn btn-primary">
+
+            Generate AI Recommendations
+
+        </button>
+
+    </form>
+
+    {% if products %}
+
+    <hr>
+
+    <h4>
+
+        Recommended Products
+
+    </h4>
+
+    <div class="row">
+
+        {% for p in products %}
+
+        <div class="col-md-4">
+
+            <div class="card bg-success text-white mb-3">
+
+                <div class="card-body">
+
+                    <h5>{{ p }}</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% endif %}
+
+</div>
+```
+
+</div>
+
+{% endblock %}

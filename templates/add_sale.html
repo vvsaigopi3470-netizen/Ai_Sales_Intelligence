@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Sale</h2>
+
+<form method="POST">
+
+<label>Product</label>
+
+<select
+class="form-control mb-3"
+name="product">
+
+{% for p in products %}
+
+<option value="{{p[0]}}">
+{{p[1]}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<label>Customer</label>
+
+<select
+class="form-control mb-3"
+name="customer">
+
+{% for c in customers %}
+
+<option value="{{c[0]}}">
+{{c[1]}}
+</option>
+
+{% endfor %}
+
+</select>
+
+<input
+type="number"
+name="quantity"
+class="form-control mb-3"
+placeholder="Quantity">
+
+<button
+class="btn btn-success">
+
+Save Sale
+
+</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,292 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:
+linear-gradient(
+135deg,
+#0f172a,
+#1e293b
+);
+
+min-height:100vh;
+
+}
+
+.wrapper{
+display:flex;
+}
+
+.sidebar{
+
+width:260px;
+height:100vh;
+
+position:fixed;
+
+background:
+rgba(255,255,255,0.08);
+
+backdrop-filter:blur(20px);
+
+border-right:
+1px solid rgba(255,255,255,0.1);
+
+padding:20px;
+
+}
+
+.logo{
+
+color:white;
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+.logo h3{
+font-weight:bold;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar ul li{
+margin:12px 0;
+}
+
+.sidebar ul li a{
+
+text-decoration:none;
+
+color:white;
+
+display:block;
+
+padding:12px;
+
+border-radius:12px;
+
+transition:0.3s;
+
+}
+
+.sidebar ul li a:hover{
+
+background:
+rgba(255,255,255,0.15);
+
+transform:
+translateX(8px);
+
+}
+
+.sidebar i{
+margin-right:10px;
+}
+
+.main-content{
+
+margin-left:260px;
+
+width:100%;
+
+}
+
+.topbar{
+
+background:
+rgba(255,255,255,0.08);
+
+backdrop-filter:blur(15px);
+
+padding:20px;
+
+color:white;
+
+box-shadow:
+0 4px 20px rgba(0,0,0,0.2);
+
+}
+
+.content-area{
+padding:30px;
+}
+
+.card{
+
+border:none;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,0.12);
+
+backdrop-filter:blur(20px);
+
+color:white;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.3);
+
+}
+
+.table{
+
+background:white;
+
+border-radius:15px;
+
+overflow:hidden;
+
+}
+
+.btn{
+
+border-radius:10px;
+
+}
+
+.btn-primary{
+background:#2563eb;
+}
+
+.btn-success{
+background:#10b981;
+}
+
+.btn-danger{
+background:#ef4444;
+}
+
+h1,h2,h3,h4,h5{
+color:white;
+}
+
+form{
+
+background:
+rgba(255,255,255,0.08);
+
+padding:25px;
+
+border-radius:20px;
+
+backdrop-filter:blur(20px);
+
+}
+
+input,
+select{
+
+border-radius:10px !important;
+
+}
+
+.card{
+
+    transition:0.4s;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 20px 40px rgba(
+    0,0,0,0.4
+    );
+}
+
+canvas{
+
+    max-height:350px;
+}
+
+.table-hover tbody tr:hover{
+
+    background:
+    rgba(
+    37,
+    99,
+    235,
+    0.15
+    );
+}
+
+.card{
+
+    transition:0.4s;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-6px);
+}
+
+.badge{
+
+    padding:8px 12px;
+
+    font-size:14px;
+
+    border-radius:10px;
+}
+
+.table-hover tbody tr:hover{
+
+    background:
+    rgba(
+    16,
+    185,
+    129,
+    0.1
+    );
+}
+
+canvas{
+
+    max-height:350px;
+}
+
+.alert{
+
+    border-radius:12px;
+}
+
+.chat-container{
+
+    min-height:250px;
+
+    padding:20px;
+}
+
+.bot-message{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    width:fit-content;
+
+    max-width:80%;
+
+    margin-top:15px;
+}
+
+.input-group input{
+
+    height:55px;
+}

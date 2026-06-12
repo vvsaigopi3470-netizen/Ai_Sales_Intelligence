@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+```
+<h2 class="mb-4">
+    Executive Dashboard
+</h2>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h6>Total Products</h6>
+                <h2>{{ products }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h6>Total Customers</h6>
+                <h2>{{ customers }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-warning text-dark">
+            <div class="card-body">
+                <h6>Total Sales</h6>
+                <h2>{{ sales }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-danger text-white">
+            <div class="card-body">
+                <h6>Total Revenue</h6>
+                <h2>₹{{ revenue }}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+    <h4>Sales Trend Analysis</h4>
+
+    <canvas id="salesChart"></canvas>
+
+</div>
+```
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx =
+document.getElementById('salesChart');
+
+new Chart(ctx, {
+
+type:'line',
+
+data:{
+
+labels:[
+'Jan','Feb','Mar',
+'Apr','May','Jun'
+],
+
+datasets:[{
+
+label:'Revenue',
+
+data:[
+12000,
+18000,
+25000,
+22000,
+30000,
+42000
+],
+
+borderWidth:3,
+fill:true
+
+}]
+
+}
+
+});
+
+</script>
+
+{% endblock %}

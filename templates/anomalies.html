@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>
+Anomaly Detection
+</h2>
+
+<table class="table">
+
+<tr>
+<th>Abnormal Sales</th>
+</tr>
+
+{% for row in anomalies %}
+
+<tr>
+
+<td>
+{{row.sales}}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

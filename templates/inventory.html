@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+```
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>
+
+        Smart Inventory Intelligence
+
+    </h2>
+
+    <a href="/add_inventory"
+       class="btn btn-success">
+
+        <i class="bi bi-plus-circle"></i>
+
+        Add Inventory
+
+    </a>
+
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-3">
+
+        <div class="card bg-primary text-white">
+
+            <div class="card-body">
+
+                <h6>Total Items</h6>
+
+                <h2>{{ inventory|length }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-success text-white">
+
+            <div class="card-body">
+
+                <h6>Healthy Stock</h6>
+
+                <h2>Available</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-warning text-dark">
+
+            <div class="card-body">
+
+                <h6>Monitor Stock</h6>
+
+                <h2>Active</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card bg-danger text-white">
+
+            <div class="card-body">
+
+                <h6>Low Stock Alerts</h6>
+
+                <h2>AI Enabled</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card p-4">
+
+    <table class="table table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>ID</th>
+                <th>Product</th>
+                <th>Stock</th>
+                <th>Reorder Point</th>
+                <th>Status</th>
+                <th>Recommendation</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for i in inventory %}
+
+            <tr>
+
+                <td>{{ i[0] }}</td>
+
+                <td>{{ i[1] }}</td>
+
+                <td>{{ i[2] }}</td>
+
+                <td>{{ i[3] }}</td>
+
+                <td>
+
+                    {% if i[2] <= i[3] %}
+
+                    <span class="badge bg-danger">
+
+                        Low Stock
+
+                    </span>
+
+                    {% elif i[2] <= (i[3] * 2) %}
+
+                    <span class="badge bg-warning">
+
+                        Monitor
+
+                    </span>
+
+                    {% else %}
+
+                    <span class="badge bg-success">
+
+                        Healthy
+
+                    </span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+
+                    {% if i[2] <= i[3] %}
+
+                    Reorder Immediately
+
+                    {% elif i[2] <= (i[3] * 2) %}
+
+                    Consider Restocking
+
+                    {% else %}
+
+                    No Action Needed
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+
+                    <a href="/delete_inventory/{{ i[0] }}"
+                       class="btn btn-danger btn-sm">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<br>
+
+<div class="card p-4">
+
+    <h4>
+
+        AI Inventory Insights
+
+    </h4>
+
+    <ul>
+
+        <li>
+            Products below reorder point require immediate replenishment.
+        </li>
+
+        <li>
+            Maintain safety stock to avoid stockouts.
+        </li>
+
+        <li>
+            Inventory turnover is being monitored.
+        </li>
+
+        <li>
+            AI recommends periodic demand forecasting.
+        </li>
+
+    </ul>
+
+</div>
+```
+
+</div>
+
+{% endblock %}

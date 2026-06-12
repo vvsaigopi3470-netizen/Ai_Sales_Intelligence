@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>
+Profit Prediction
+</h2>
+
+<form method="POST">
+
+<input
+type="number"
+name="revenue"
+class="form-control mb-3"
+placeholder="Revenue">
+
+<button
+class="btn btn-primary">
+
+Predict Profit
+
+</button>
+
+</form>
+
+{% if profit %}
+
+<div class="alert alert-info mt-3">
+
+Expected Profit:
+
+₹{{profit}}
+
+</div>
+
+{% endif %}
+
+{% endblock %}
